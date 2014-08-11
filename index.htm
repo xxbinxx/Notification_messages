@@ -1,4 +1,4 @@
-<!-- some commonly used notification messages info, error, warning, success. These messages are displayed on the top of your website. To show an message just call showMessage("Message_Name") .
+<!-- some commonly used notification messages info, error, warning, success. These messages are displayed on the top of your website. To show an message just call showMessage("Message_Name").
 -->
 
 <html>
@@ -16,8 +16,8 @@
 	                border: 1px solid;
 	                color: #fff;
 	                /*padding: 5px;*/
-	                position: fixed;
-	                _position: absolute;
+	                position: fixed;               /* uncomment this to make it run properly*/
+	                _position: absolute;   /* position fix for ie */
 	                text-shadow: 0 1px 0 rgba(0,0,0,.5);
 	                animation: animate-bg 5s linear infinite;
                 }
@@ -102,7 +102,7 @@
             $('.message').click(function(){
                 $(this).animate({top: -$(this).outerHeight()}, 500);
             });
-            showMessage("info");
+            showMessage("info");  // this is an example test call to show an info.
             
         });
         </script>
