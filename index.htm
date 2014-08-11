@@ -1,0 +1,110 @@
+<!-- some commonly used notification messages info, error, warning, success. These messages are displayed on the top of your website. To show an message just call showMessage("Message_Name") .
+-->
+
+<html>
+    <head>
+        <title>Notification messages</title>
+        <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+        <style>
+                .message{
+	                background-size: 40px 40px;
+	                background-image: linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%,
+                    transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
+                    transparent 75%, transparent);
+	                box-shadow: inset 0 -1px 0 rgba(255,255,255,.4);
+	                width: 100%;
+	                border: 1px solid;
+	                color: #fff;
+	                /*padding: 5px;*/
+	                position: fixed;
+	                _position: absolute;
+	                text-shadow: 0 1px 0 rgba(0,0,0,.5);
+	                animation: animate-bg 5s linear infinite;
+                }
+                .info{
+	                background-color: #4ea5cd;
+	                border-color: #3b8eb5;
+                }
+                .error{
+		            background-color: #de4343;
+		            border-color: #c43d3d;
+                }
+                .warning{
+	                background-color: #eaaf51;
+	                border-color: #d99a36;
+                }
+                .success{
+	                background-color: #61b832;
+	                border-color: #55a12c;
+                }
+                .message h3{
+                    margin: 0 0 5px 0;
+                }
+                .message p{
+                    margin: 0;
+                }
+            @keyframes animate-bg {
+                from {
+                    background-position: 0 0;
+                }
+                to {
+                	background-position: -80px 0;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="info message">
+            <h3>something just happened!</h3>
+            <p>This is an info notification message.</p>
+        </div>
+        <div class="error message">
+            <h3>Ups, an error ocurred</h3>
+            <p>This is an error notification message.</p>
+        </div>
+        <div class="warning message">
+            <h3>Wait, This is a warning!</h3>
+            <p>This is a warning notification message.</p>
+        </div>
+        <div class="success message">
+            <h3>Congrats!</h3>
+            <p>This is a success notification message.</p>
+        </div>
+
+        <script>
+        var myMessages = ['info','warning','error','success'];
+                function hideAllMessages() {
+
+                    var messagesHeights = new Array(); // this array will store height for each
+
+                    for (i=0; i<myMessages.length; i++) {
+                    	messagesHeights[i] = $('.' + myMessages[i]).outerHeight(); // fill array
+                        $('.' + myMessages[i]).css('top', -messagesHeights[i]); //move element outside viewport
+                    }
+                }
+                function showMessage(type) {
+                
+                    $('.'+type).animate({top:"0"}, 500);
+                
+                }
+        $(document).ready(function(){
+            
+            // Initially, hide them all
+             hideAllMessages();
+            
+            // Show message
+            // for(var i=0;i<myMessages.length;i++)
+            // {
+            //     showMessage(myMessages[i]);
+            // }
+            
+            // When message is clicked, hide it
+            $('.message').click(function(){
+                $(this).animate({top: -$(this).outerHeight()}, 500);
+            });
+            showMessage("info");
+            
+        });
+        </script>
+    </body>
+</html>
