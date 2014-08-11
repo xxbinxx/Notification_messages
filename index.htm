@@ -16,7 +16,7 @@
 	                border: 1px solid;
 	                color: #fff;
 	                /*padding: 5px;*/
-	                position: fixed;               /* uncomment this to make it run properly*/
+	                /*position: fixed;        uncomment this to make it run properly*/
 	                _position: absolute;   /* position fix for ie */
 	                text-shadow: 0 1px 0 rgba(0,0,0,.5);
 	                animation: animate-bg 5s linear infinite;
@@ -102,7 +102,8 @@
             $('.message').click(function(){
                 $(this).animate({top: -$(this).outerHeight()}, 500);
             });
-            showMessage("info");  // this is an example test call to show an info.
+            
+            // showMessage("info");  // this is an example test call to show an info.
             
         });
         </script>
